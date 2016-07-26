@@ -33,6 +33,5 @@ board.on("ready", function() {
     console.log("  z            : ", this.gyro.z);
     console.log("  pitch        : ", this.gyro.pitch);
     console.log("  roll         : ", this.gyro.roll);
-   
-
+  });
 });
