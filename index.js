@@ -12,7 +12,7 @@ board.on("ready", function() {
   });
 
   imu.on("change", function() {
-      console.log(`
+      console.log(`\x1B[1A\x1B[K
         [TEMPERATURE]
         celsius      : ${this.temperature.celsius}
         fahrenheit   : ${this.temperature.fahrenheit}
