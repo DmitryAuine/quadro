@@ -11,29 +11,33 @@ board.on("ready", function() {
   });
 
   imu.on("change", function() {
-    console.log("temperature");
-    console.log("  celsius      : ", this.temperature.celsius);
-    console.log("  fahrenheit   : ", this.temperature.fahrenheit);
-    console.log("  kelvin       : ", this.temperature.kelvin);
-    console.log("--------------------------------------");
-
-    console.log("accelerometer");
-    console.log("  x            : ", this.accelerometer.x);
-    console.log("  y            : ", this.accelerometer.y);
-    console.log("  z            : ", this.accelerometer.z);
-    console.log("  pitch        : ", this.accelerometer.pitch);
-    console.log("  roll         : ", this.accelerometer.roll);
-    console.log("  acceleration : ", this.accelerometer.acceleration);
-    console.log("  inclination  : ", this.accelerometer.inclination);
-    console.log("  orientation  : ", this.accelerometer.orientation);
-    console.log("--------------------------------------");
-
-    console.log("gyro");
-    console.log("  x            : ", this.gyro.x);
-    console.log("  y            : ", this.gyro.y);
-    console.log("  z            : ", this.gyro.z);
-    console.log("  pitch        : ", this.gyro.pitch);
-    console.log("  roll         : ", this.gyro.roll);
-   
-
+    console.log(`
+      [TEMPERATURE]
+      celsius      : ${this.temperature.celsius}
+      fahrenheit   : ${this.temperature.fahrenheit}
+      kelvin       : ${this.temperature.kelvin}
+      --------------------------------------
+    
+      [ACCELEROMETER]
+      x            : ${this.accelerometer.x}
+      y            : ${this.accelerometer.y}
+      z            : ${this.accelerometer.z}
+      pitch        : ${this.accelerometer.pitch}
+      roll         : ${this.accelerometer.roll}
+      acceleration : ${this.accelerometer.acceleration}
+      inclination  : ${this.accelerometer.inclination}
+      orientation  : ${this.accelerometer.orientation}
+      --------------------------------------
+    
+      [GYRO]
+      x            : ${this.gyro.x}
+      y            : ${this.gyro.y}
+      z            : ${this.gyro.z}
+      pitch        : ${this.gyro.pitch}
+      roll         : ${this.gyro.roll}
+      yaw          : ${this.gyro.yaw}
+      rate         : ${this.gyro.rate}
+      isCalibrated : ${this.gyro.isCalibrated}
+      --------------------------------------
+  `);
 });
