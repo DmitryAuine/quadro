@@ -38,6 +38,7 @@ board.on("ready", function() {
   
   imu.on("change", function() {
     if(socketUser) {
+      console.log('Emit')
       socketUser.emit('MPU6050', {
         temperature: this.temperature,
         accelerometer: this.accelerometer,
