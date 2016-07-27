@@ -40,9 +40,9 @@ board.on("ready", function() {
     if(socketUser) {
       console.log('Emit')
       socketUser.emit('MPU6050', JSON.stringify({
-        temperature: this.temperature.celsius,
-        accelerometer: this.accelerometer,
-        gyro: this.gyro,
+        x: this.gyro.roll,
+        y: this.gyro.pitch,
+        z this.gyro.yaw,
       }));
     }
   });
