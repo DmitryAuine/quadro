@@ -41,7 +41,9 @@ board.on("ready", function() {
       console.log('Emit')
       socketUser.emit('MPU6050', {
         temperature: this.temperature.celsius,
-        gyro: this.gyro,
+        gyroX: this.gyro.x,
+        gyroY: this.gyro.y,
+        gyroZ: this.gyro.z,
       });
     }
   });
