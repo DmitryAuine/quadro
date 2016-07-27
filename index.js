@@ -11,7 +11,7 @@ app.listen(80);
 
 function handler(req, res){
   res.writeHead(200);
-  res.end({ms: 'Hello!'});
+  res.end();
 }
 
 io.on('connection', function (socket) {
