@@ -39,12 +39,12 @@ board.on("ready", function() {
   imu.on("change", function() {
     if(socketUser) {
       console.log('Emit')
-      socketUser.emit('MPU6050', {
+      socketUser.emit('MPU6050', JSON.stringify({
         temperature: this.temperature.celsius,
-        gyroX: this.gyro.x,
-        gyroY: this.gyro.y,
-        gyroZ: this.gyro.z,
-      });
+        accelerometer: this.accelerometer,
+        gyro: this.gyro,
+      }));
     }
   });
 });
+
