@@ -3,7 +3,7 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 <script>
-  window.onready = function() {
+  window.onload = function() {
     var socket = io('http://192.168.0.20/');
     var ctx = document.getElementById("myChart");
     var data = [0, 0, 0];
