@@ -39,11 +39,11 @@ board.on("ready", function() {
   imu.on("change", function() {
     if(socketUser) {
       console.log('Emit')
-      socketUser.emit('MPU6050', JSON.stringify({
+      socketUser.emit('MPU6050', {
         x: this.gyro.roll,
         y: this.gyro.pitch,
-        z this.gyro.yaw,
-      }));
+        z: this.gyro.yaw,
+      });
     }
   });
 });
