@@ -11,6 +11,7 @@ app.listen(80);
 
 io.on('connection', function (socket) {
   socketUser = socket;
+  console.log('User connected')
 });
 
 board.on("ready", function() {
