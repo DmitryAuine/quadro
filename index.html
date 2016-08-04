@@ -4,34 +4,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 <script>
   window.onload = function() {
+    var ROLL = 0,
+        PITCH = 1,
+        YAW = 2;
+    var BUFFER_SIZE = 100;
+    var ROLLBUFFER = [];
+    var PITCHBUFFER = [];
+    var YAWBUFFER = [];
     var socket = io('http://192.168.0.20/');
     var ctx = document.getElementById("myChart");
-    var data = [0, 0, 0];
-     var myChart = new Chart(ctx, {
+    
+    var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ["x", "y", "z"],
-          datasets: [{
-              label: '# of Votes',
-              data: data,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
+          labels: ["ROLL", "PITCH", "YAW"],
+          datasets: [
+            {
+              label: 'ROLL',
+              data: ROLLBUFFER,
               borderWidth: 1
-          }]
+            },
+            {
+              label: 'PITCH',
+              data: PITCHBUFFER,
+              borderWidth: 1
+            },
+             {
+              label: 'YAW',
+              data: YAWBUFFER,
+              borderWidth: 1
+            }
+          ]
       },
       options: {
           scales: {
@@ -44,7 +47,10 @@
       }
 });
     socket.on('MPU6050', function (dataFromServer) {
-      myChart.data.datasets[0].data = [dataFromServer.x.angle, dataFromServer.y.angle, dataFromServer.z.angle];
+      ROLLBUFFER.push(dataFromServer[ROLL]);
+      PITCHBUFFER.push(dataFromServer[PITCH]);
+      YAWBUFFER.push(dataFromServer[YAW]);
+      
       myChart.update();
     });
   }
