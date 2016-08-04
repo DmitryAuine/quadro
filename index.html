@@ -14,16 +14,16 @@
 
     socket.on('MPU6050', function (dataFromServer) {
       ROLLSTAT.innerHTML = dataFromServer[ROLL].angle;
-      PITCH.innerHTML = dataFromServer[PITCH].angle;
+      PITCHSTAT.innerHTML = dataFromServer[PITCH].angle;
       YAWSTAT.innerHTML = dataFromServer[YAW].angle;
     });
   }
 </script>
 <head>
 <body>
-  ROLL: <div id="r"></div>
-  PITCH: <div id="p"></div>
-  YAW: <div id="y"></div>
+  <div>ROLL: <span id="r"></span></div>
+  <div>PITCH: <span id="p"></span></div>
+  <div>YAW: <span id="y"></span></div>
   <img src="https://developer.valvesoftware.com/w/images/7/7e/Roll_pitch_yaw.gif" />
 </body>
 <html>
