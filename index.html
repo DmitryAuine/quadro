@@ -8,40 +8,21 @@
         PITCH = 1,
         YAW = 2;
     var socket = io('http://192.168.0.20/');
-    var ctx = document.getElementById("myChart");
-    
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["ROLL", "PITCH", "YAW"],
-          datasets: [
-            {
-              label: 'GYRO DATA',
-              data: [0, 0, 0],
-              borderWidth: 1,
-              fill: false,
-            }
-          ]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
-      }
+    var ROLLSTAT = document.getElementById('r');
+    var PITCHSTAT = document.getElementById('p');
+    var YAWSTAT = document.getElementById('y');
 });
     socket.on('MPU6050', function (dataFromServer) {
-      console.log('ROLL: ',dataFromServer[ROLL].angle)
-      // console.log('PITCH: ',dataFromServer[PITCH].angle)
-      // console.log('YAW: ',dataFromServer[YAW].angle)
+      ROLLSTAT.innerHTML = dataFromServer[ROLL].angle);
+      PITCH.innerHTML = dataFromServer[PITCH].angle);
+      YAWSTAT.innerHTML = dataFromServer[YAW].angle);
     });
   }
 </script>
 <head>
 <body>
-  <canvas id="myChart" width="400" height="400"></canvas>
+  ROLL: <div id="r"></div>
+  PITCH: <div id="p"></div>
+  YAW: <div id="y"></div>
 </body>
 <html>
