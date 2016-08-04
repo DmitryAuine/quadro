@@ -40,9 +40,9 @@ board.on("ready", function() {
     if(socketUser) {
       console.log('Emit')
       socketUser.emit('MPU6050', {
-        x: this.gyro.roll,
-        y: this.gyro.pitch,
-        z: this.gyro.yaw,
+        roll: this.gyro.roll,
+        pitch: this.gyro.pitch,
+        yaw: this.gyro.yaw,
       });
     }
   });
