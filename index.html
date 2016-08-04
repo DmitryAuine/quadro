@@ -11,7 +11,7 @@
     var ROLLSTAT = document.getElementById('r');
     var PITCHSTAT = document.getElementById('p');
     var YAWSTAT = document.getElementById('y');
-});
+
     socket.on('MPU6050', function (dataFromServer) {
       ROLLSTAT.innerHTML = dataFromServer[ROLL].angle;
       PITCH.innerHTML = dataFromServer[PITCH].angle;
