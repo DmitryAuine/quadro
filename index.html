@@ -50,8 +50,8 @@
       ROLLBUFFER.push(dataFromServer[ROLL].angle);
       PITCHBUFFER.push(dataFromServer[PITCH].angle);
       YAWBUFFER.push(dataFromServer[YAW].angle);
-      // console.log(dataFromServer)
-      myChart.update();
+      console.log(dataFromServer[ROLL].angle)
+      // myChart.update();
     });
   }
 </script>
