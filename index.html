@@ -47,11 +47,11 @@
       }
 });
     socket.on('MPU6050', function (dataFromServer) {
-      ROLLBUFFER.push(dataFromServer[ROLL]);
-      PITCHBUFFER.push(dataFromServer[PITCH]);
-      YAWBUFFER.push(dataFromServer[YAW]);
-      console.log(dataFromServer)
-      // myChart.update();
+      ROLLBUFFER.push(dataFromServer[ROLL].angle);
+      PITCHBUFFER.push(dataFromServer[PITCH].angle);
+      YAWBUFFER.push(dataFromServer[YAW].angle);
+      // console.log(dataFromServer)
+      myChart.update();
     });
   }
 </script>
