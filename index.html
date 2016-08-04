@@ -34,13 +34,9 @@
       }
 });
     socket.on('MPU6050', function (dataFromServer) {
-      myChart.data.datasets[0].data = [
-        dataFromServer[ROLL].angle,
-        dataFromServer[PITCH].angle,
-        dataFromServer[YAW].angle
-      ];
-
-      myChart.update();
+      console.log('ROLL: ',dataFromServer[ROLL].angle)
+      console.log('PITCH: ',dataFromServer[PITCH].angle)
+      console.log('YAW: ',dataFromServer[YAW].angle)
     });
   }
 </script>
